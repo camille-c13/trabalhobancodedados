@@ -1,7 +1,3 @@
--- ==========================
--- TABELAS
--- ==========================
-
 CREATE TABLE Autor (
     id_autor INT PRIMARY KEY,
     nome VARCHAR(100)
@@ -75,9 +71,6 @@ CREATE TABLE Multa (
     id_emprestimo INT
 );
 
--- ==========================
--- CHAVES ESTRANGEIRAS
--- ==========================
 
 ALTER TABLE Usuario
 ADD CONSTRAINT fk_usuario_tipo
@@ -128,5 +121,36 @@ ALTER TABLE Multa
 ADD CONSTRAINT fk_multa_emprestimo
 FOREIGN KEY (id_emprestimo)
 REFERENCES Emprestimo(id_emprestimo);
+
+INSERT INTO Tipo_Usuario VALUES
+    (1,'Aluno'), 
+    (2,'Professor');
+
+INSERT INTO Curso VALUES 
+    (1,'Direito'), 
+    (2,'Ads');
+
+INSERT INTO Usuario VALUES
+    (1,'Camille Cunha Silva','78787960130','camille@gmail.com','61999999999',1,1)
+    (2,'kamilly Cunhe Silva','78787540130','kamille@gmail.com','61999999998',2,2)
+
+INSERT INTO Editora VALUES 
+    (1,'darkside'); 
+INSERT INTO Categoria VALUES 
+    (1,'Ficção'); 
+INSERT INTO Autor VALUES 
+    (1,'Clarice Lispector'), 
+    (2,'Machado de Assis');
+INSERT INTO Livro VALUES 
+    (1,'9784564789','Memórias póstumas',2020,7,1,1); 
+INSERT INTO Livro_Autor VALUES 
+    (1,1),
+    (1,2); 
+INSERT INTO Exemplar VALUES 
+    (1,'Disponível',1); 
+INSERT INTO Emprestimo VALUES 
+    (1,'2025-11-01','2025-11-10',NULL); 
+INSERT INTO Multa VALUES 
+    (1,1,10.00,'N');
 
 SHOW TABLES;
